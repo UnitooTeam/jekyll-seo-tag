@@ -1,3 +1,9 @@
+## 2.7.2 / 2020-12-30
+
+### Minor Enchancements
+
+  * Now supports translations using plugin: jekyll-multiple-languages-plugin
+
 ## 2.7.1 / 2020-10-18
 
 ### Development Fixes
