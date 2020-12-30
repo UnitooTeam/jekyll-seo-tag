@@ -33,6 +33,13 @@ module Jekyll
         @display_title = (@text !~ %r!title=false!i)
       end
 
+      def translate?
+        return false unless translate?
+        return @translate if defined?(@translate)
+
+        @translate = (@text =~ %r!translate=true!i)
+      end
+
       def site_title
         @site_title ||= format_string(site["title"] || site["name"])
       end
