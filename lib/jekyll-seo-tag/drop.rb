@@ -34,7 +34,6 @@ module Jekyll
       end
 
       def translate?
-        return false unless translate?
         return @translate if defined?(@translate)
 
         @translate = (@text =~ %r!translate=true!i)
