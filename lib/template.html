@@ -7,19 +7,18 @@
   {{ seo_tag.title }}
   {% endif %}
 </title>
-
 {% endif %}
 
 <meta name="generator" content="Jekyll v{{ jekyll.version }}" />
 
-{% assign page_title = '' %}
 {% if seo_tag.page_title %}
-
-{% assign page_title = seo_tag.page_title %}
+<meta property="og:title" content="
 {% if seo_tag.translate? %}
-{% assign page_title = t page_title %}
+{% t page.title %}
+{% else %}
+{{ seo_tag.page_title }}
 {% endif %}
-<meta property="og:title" content="{{ page_title }}" />
+" />
 {% endif %}
 
 {% if seo_tag.author.name %}
@@ -32,15 +31,23 @@
 {% endif %}
 <meta property="og:locale" content="{{ locale }}" />
 
+
 {% if seo_tag.description %}
-
-{% assign description = seo_tag.description %}
+<meta name="description" content="
 {% if seo_tag.translate? %}
-{% assign description = t description %}
+{% t page.description %}
+{% else %}
+{{ seo_tag.description }}
 {% endif %}
+" />
 
-<meta name="description" content="{{ description }}" />
-<meta property="og:description" content="{{ description }}" />
+<meta property="og:description" content="
+{% if seo_tag.translate? %}
+{% t page.description %}
+{% else %}
+{{ seo_tag.description }}
+{% endif %}
+" />
 {% endif %}
 
 {% if site.url %}
