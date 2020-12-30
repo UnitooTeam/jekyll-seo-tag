@@ -65,9 +65,9 @@ module Jekyll
       def title
         @title ||= begin
           if site_title && page_title != site_title
-            page_title + TITLE_SEPARATOR + site_title
+            page_title + title_suffix
           elsif site_description && site_title
-            site_title + TITLE_SEPARATOR + site_tagline_or_description
+            site_title + title_suffix
           else
             page_title || site_title
           end
@@ -76,6 +76,18 @@ module Jekyll
         return page_number + @title if page_number
 
         @title
+      end
+
+      def title_suffix
+        @title_suffix ||= begin
+          if site_title && page_title != site_title
+            TITLE_SEPARATOR + site_title
+          elsif site_description && site_title
+            TITLE_SEPARATOR + site_tagline_or_description
+          end
+        end
+
+        @title_suffix
       end
       # rubocop:enable Metrics/CyclomaticComplexity
 
