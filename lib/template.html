@@ -1,17 +1,18 @@
 <!-- Begin Jekyll SEO tag v{{ seo_tag.version }} -->
 {% if seo_tag.title? %}
+<title>
+  {% if seo_tag.translate? %}
+  {% t page.title %}{{ seo_tag.title_suffix }}
+  {% else %}
+  {{ seo_tag.title }}
+  {% endif %}
+</title>
 
-{% assign title = seo_tag.title %}
-{% if seo_tag.translate? %}
-{% assign title = t title %}
-{% endif %}
-<title>{{ title }}</title>
 {% endif %}
 
 <meta name="generator" content="Jekyll v{{ jekyll.version }}" />
 
 {% assign page_title = '' %}
-
 {% if seo_tag.page_title %}
 
 {% assign page_title = seo_tag.page_title %}
