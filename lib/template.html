@@ -99,7 +99,13 @@
 {% endif %}
 
 {% if seo_tag.page_title %}
-  <meta property="twitter:title" content="{{ seo_tag.page_title }}" />
+<meta property="twitter:title" content="
+{% if seo_tag.translate? %}
+{% t page.title %}
+{% else %}
+{{ seo_tag.page_title }}
+{% endif %}
+" />
 {% endif %}
 
 {% if site.twitter %}
